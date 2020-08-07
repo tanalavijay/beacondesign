@@ -1,0 +1,22 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add Remarks
+  </h1>
+</div>
+<div mat-dialog-content>
+    <div class="w-100">
+      <div class="w-100 flex-p">
+        <ckeditor [editor]="Editor" data="<p>Hello World! 
+           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsam corrupti numquam, perspiciatis ratione voluptatem dolorem.</p>"></ckeditor>
+      </div>
+    </div>
+</div>
+<mat-dialog-actions class="col-sm-12" align="end">
+  <button   mat-raised-button   >
+    <mat-icon>send</mat-icon>&nbsp;Save
+  </button>
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    <mat-icon>cancel</mat-icon>&nbsp;Close
+  </button>
+</mat-dialog-actions>

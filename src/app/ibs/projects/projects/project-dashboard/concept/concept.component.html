@@ -1,0 +1,73 @@
+<div class="col-sm-12">
+  <div class="col-sm-6 no-padding" style="margin-bottom: 10px;">
+    <button [ngClass]="{'tabActive': isInception === true}" mat-raised-button (click)="fnInception()"
+      class="mat-raised-button tab"> Geology
+    </button>
+    <button [ngClass]="{'tabActive': isControl === true}" mat-raised-button (click)="fnControl()"
+      class="mat-raised-button tab"> Plan
+    </button>
+    <button [ngClass]="{'tabActive': isTests === true}" mat-raised-button (click)="fnTest()"
+      class="mat-raised-button tab"> Material
+    </button>
+    <button [ngClass]="{'tabActive': isSchedule === true}" mat-raised-button (click)="fnSchedule()"
+      class="mat-raised-button tab"> Schedule
+    </button>
+  </div>
+  <div class="col-sm-6 pull-right no-padding">
+    <button *ngIf="isInception" mat-raised-button class="pull-right  btn-primary" (click)="openConceptDialog(null)">
+      <mat-icon>add</mat-icon> Add Item
+    </button>
+    <button *ngIf="isInception" mat-raised-button class="pull-right  btn-primary" style="margin-right: 10px;">
+      <mat-icon>cloud_download</mat-icon> Download Report 
+    </button>
+  </div>
+</div>
+<div *ngIf="isInception " class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th style="text-align: center !important">Category Name</th>
+              <th style="text-align: center !important">Item Description</th>
+              <th style="text-align: center !important" >Quantity</th>
+              <th style="text-align: center !important">Unit</th>
+              <th style="text-align: center !important" >Rate</th>
+              <th style="text-align: center !important" >Total Amount</th>
+              <th style="text-align: center !important">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of concept">
+            <td class="text-center">
+              {{item.cat_name}}
+            </td>      
+            <td class="text-center">
+            {{item.item}}
+            </td>
+            <td class="text-center">
+              {{item.quantity}}
+            </td> 
+            <td class="text-center">
+              {{item.Unit}}
+            </td> 
+            <td class="text-center">
+              {{item.Rate}}
+            </td> 
+            <td class="text-center">
+              {{item.total}}
+            </td> 
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update observation" (click)="openConceptDialog(item)">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete observation"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="!isInception" class="row d-flex">
+  <div class="col-6 mx-auto middle">
+    <img style="margin-top: 15%; display: flex; margin-left: auto; margin-right: auto;" src="/assets/img/under-construction.png" height="400px" alt="under-construction">
+  </div>
+</div>

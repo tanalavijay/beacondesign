@@ -1,0 +1,32 @@
+<div class="NewHeader">
+  <h1 *ngIf="doc.from == false" mat-dialog-title> Add Brief</h1>
+  <h1 *ngIf="doc.from == true" mat-dialog-title> Add Scope</h1>
+</div>
+<div mat-dialog-content style="overflow: hidden;">
+    <ng-template matStepLabel>Documents</ng-template>
+    <form  novalidate [formGroup]="docxForm">
+      <table class="table table-striped table-bordered" style="width: 100%;">
+        <thead class="tbl-head">
+          <th>Document Name</th>
+          <th>Document</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr formArrayName="jobCodeDetails" *ngFor="let item of docxForm.get('jobCodeDetails')['controls']; let index = index;">
+            <ng-container [formGroupName]="index">
+              <td><input type="text" maxlength="50" formControlName="docRef" class="form-control"></td>
+              <td><input type="file" (change)="handleFileSelect($event, index)" formControlName="filesSelect" class="form-control"></td>
+              <td style="text-align: center !important;cursor: pointer;" *ngIf="index == 0"><a (click)="addItem()"><mat-icon class="add">add</mat-icon></a></td>
+              <td  style="text-align: center !important;cursor: pointer;" *ngIf="index > 0"><a (click)="removeItem(index)"><mat-icon class="delete">delete</mat-icon></a></td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+<mat-dialog-actions align="end" >
+  <button mat-raised-button [ngClass]="!docxForm.valid ? '':'btn-primary'" [disabled]="!docxForm.valid"><mat-icon>cloud_upload</mat-icon>&nbsp; Upload</button>
+  <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions> 
+
+
