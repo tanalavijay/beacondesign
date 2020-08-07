@@ -13,6 +13,7 @@
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 @import "~fullcalendar/dist/fullcalendar.min.css";
+@import '../node_modules/angular2-toaster/src/toaster.scss';
 @import './prime-ng.scss';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "./custom_styles.scss";
@@ -776,4 +777,13 @@ button {
     background: #eeeeee;
     font-weight: 500;
  }
-    
+ .toast-success {
+    background-color: #51A351;
+}
+
+.toast-error {
+    background-color: #BD362F;
+}
+.toast-error,.toast-success {
+    font-size: 15px !important;
+}

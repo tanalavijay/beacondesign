@@ -28,7 +28,7 @@ export class AppComponent {
       showCloseButton: false,
       limit: 1,
       tapToDismiss: true,
-      timeout: 2000,
+      timeout: 5000,
       positionClass: 'toast-top-right',
       animation: 'fade'
     });
