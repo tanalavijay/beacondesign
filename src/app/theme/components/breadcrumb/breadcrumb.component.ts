@@ -46,8 +46,9 @@ export class BreadcrumbComponent {
             "Analytics": "This is Analytics Screen",
 
             "Projects": "This is Project Screen",
-
+            "Project Dashboard": "Activities that are carried on selected project can be viewed and managed.",
             "Scheduling":"This is Scheduling Screen",
+            "Activity": "The timeline of the Project updates appears here.",
             
             "Payroll":"This is Payroll Screen",
 

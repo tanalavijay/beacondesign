@@ -4,8 +4,6 @@ import { LayoutComponent } from "./layout/layout.component";
 import { LoginComponent } from "./login/login.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 
-
-
 export const routes: Routes = [
   {
     path: "beacon",
@@ -20,7 +18,7 @@ export const routes: Routes = [
       {
         path: "projects",
         loadChildren: "./beacon/projects/projects.module#ProjectsModule",
-        data: { breadcrumb: "Projects" },
+        data: { breadcrumb: "" },
       },        
       {
         path: "scheduling",
