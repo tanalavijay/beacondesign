@@ -16,8 +16,9 @@
                         <mat-icon>person</mat-icon>
                     </button>
 
-                    <a *ngIf="settings.menu == 'horizontal'" color="accent" (click)="closeSubMenus()"><img
-                            src="../../assets/img/logo.png" class="logo" alt="XP"></a>
+                    <a *ngIf="settings.menu == 'horizontal'" color="accent" (click)="closeSubMenus()">
+                        <img alt="logo" class="logo-default logo-img" style="height: 33px;" src="../../assets/img/logo.png">
+                    </a>
      
                 </div>
                 <mat-toolbar color="primary" *ngIf="settings.menu == 'horizontal'"
@@ -33,6 +34,9 @@
                     <!-- <a *ngIf="show_universal_filter">
                         <app-universal-filter></app-universal-filter>
                     </a> -->
+                    <button mat-icon-button><mat-icon title="Notifications">notification_important</mat-icon></button>
+                    <button mat-icon-button><mat-icon title="Message Center">message</mat-icon></button>
+                    <button mat-icon-button><mat-icon title="Approvals">verified_user</mat-icon></button>
                     <app-fullscreen></app-fullscreen>
                     <app-user-menu></app-user-menu>
                 </div>

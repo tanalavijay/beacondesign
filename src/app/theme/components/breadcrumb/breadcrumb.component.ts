@@ -43,46 +43,59 @@ export class BreadcrumbComponent {
         this.settings = this.appSettings.settings;
         this.description = {
 
-            // ANALYTICS
             "Analytics": "This is Analytics Screen",
 
-            //PROJECTS
             "Projects": "This is Project Screen",
-            "Project Dashboard": "Activities that are carried on selected project can be viewed and managed.",
-            "Clients": "This is Clients Screen",  
-            "Grid View": "This is Grid View Screen",  
-            "Map View": "This is Map View Screen",  
-            "Kanban View": "This is Kanban View Screen",  
+
+            "Scheduling":"This is Scheduling Screen",
             
+            "Payroll":"This is Payroll Screen",
+
+            "Audit":"This is Audit Screen",
+            "Overview":"This is Overview Screen",
+            "Checklist":"This is Checklist Screen",
+
+            "Procurement":"This is Procurement Screen",
+            "Purchase Orders":"This is Procurement Screen",
+            "Quotation Review":"This is Quotation Review Screen",
+            "Quotations":"This is Quotations Screen",
+            "Requisition":"This is Requisition Screen",
+            "Work Orders":"This is Work Orders Screen",
+
+            "Inventory":"This is Inventory Screen",
+            "Consignment":"This is Consignment Screen",
+            "Gate Passes":"This is Gate Passes Screen",
+            "GRN":"This is GRN Screen",
+            "Item Master":"This is Item Master Screen",
+            "Material Issues":"This is Material Issues Screen",
+            "Stock Transfer":"This is Stock Transfer Screen",
+            "Stock Disposal":"This is Stock Disposal Screen",
+            "Vendor master":"This is Vendor master Screen",
+
+
+            "Assets":"This is Assets Screen",
+            "Assets Master":"This is Assets Master Screen",
+            "Assets Maintenance":"This is Assets Maintenance Screen",
+            "Assets Transfer":"This is Assets Transfer Screen",
+
+            "Finance":"This is Finance Screen",
+            "Billing":"This is Billing Screen",
+            "Budgeting":"This is Budgeting Screen",
+            "Expenses":"This is Expenses Screen",
+            "Payables":"This is Payables Screen",
+
+            "Admin":"This is Admin Screen",
+            "Clients":"This is Clients Screen",
+            "Roles":"This is Roles Screen",
+            "Users":"This is Users Screen",
+            "Master Data":"This is Admin Screen",
+            "Kanban":"This is Kanban Screen",
+            "Color Codes":"This is Color Codes Screen",
+            "Settings":"This is Settings Screen",
+            "Lookup Options":"This is Lookup Options Screen",
+            "Announcements":"This is Announcements Screen",
             
-            "Contacts": "This is Project Screen",            
-            "Quotes": "This is Quotes Screen",            
-            "Quotes Dashboard": "This is Quotes Dashboard Screen",         
-            "Activity": "The Timeline of project updates appears here", 
-            "Overview": "This is Overview Screen", 
-            "Budget": "This is Budget Screen", 
-            "Site Visit": "This is Site Visit Screen", 
-            "Docs": "This is Site Document Screen", 
-
-
-
-            "Site Visits": "This is Site Visits Screen",            
-            "Services": "This is Services Screen",            
-             
-
-            //CALENDAR
-            "Calendar":"This is Calendar Screen",
-            
-            //REPORTS
-            "Reports":"This is Reports Screen",
-
-         
-
-            // ADMIN MODULE
-            "Master Data": "This is Master Data Screen",
-            "Roles & Users": "This is Roles & Users screen",
-            "Lookup Options": "This is Lookup Options screen",
-            "Settings": "System level settings can be managed from this screen",
+            "Screen":"This is a Screen",
         };
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {

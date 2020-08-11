@@ -40,7 +40,7 @@ export class LoginComponent {
         values["email"] == "admin@beacon.com" &&
         values["password"] == "password"
       ) {
-        this.router.navigate(["/ibs/projects"]);
+        this.router.navigate(["/beacon/"]);
         this.alertService.createAlert("Login Success", 1);
         localStorage.setItem("loginUser", values["email"]);
       } else {
