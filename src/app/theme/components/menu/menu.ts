@@ -39,9 +39,9 @@ export const adminMenuItems = [
     new Menu(1, 'Analytics', '/beacon/analytics', null, 'analytics', null, true, 0, "white"),
     new Menu(2, 'Projects', '/beacon/projects', null, 'domain', null, true, 0, "white"),
     
-    new Menu(3, 'Audit', '/beacon/audit', null, 'search', null, true, 0, "white"),
-    new Menu(3.1, 'Audits', '/beacon/audit', null, 'search', null, true, 3, "white"),
-    new Menu(3.2, 'Overview', '/beacon/audit/overview', null, 'search', null, true, 3, "white"),
+    new Menu(3, 'Audit', '/beacon/audit', null, 'assignment', null, true, 0, "white"),
+    new Menu(3.1, 'Audits', '/beacon/audit', null, 'assignment', null, true, 3, "white"),
+    new Menu(3.2, 'Overview', '/beacon/audit/overview', null, 'visibility', null, true, 3, "white"),
     new Menu(3.3, 'Checklist', '/beacon/audit/checklist', null, 'list_alt', null, true, 3, "white"),
    
     
@@ -50,29 +50,29 @@ export const adminMenuItems = [
     
     
     new Menu(6, 'Procurement', '/beacon/procurement/requisition', null, 'assignment_turned_in', null, true, 0, "white"),
-    new Menu(6.1, 'Requisition', '/beacon/procurement/requisition', null, 'assignment_turned_in', null, true, 6, "white"),
-    new Menu(6.2, 'Quotations', '/beacon/procurement/quotations', null, 'assignment_turned_in', null, true, 6, "white"),
-    new Menu(6.3, 'Quotaion Review', '/beacon/procurement/quotation-review', null, 'assignment_turned_in', null, true, 6, "white"),
-    new Menu(6.4, 'Purchase Orders', '/beacon/procurement/purchase-orders', null, 'assignment_turned_in', null, true, 6, "white"),
-    new Menu(6.5, 'Work Orders', '/beacon/procurement/work-orders', null, 'assignment_turned_in', null, true, 6, "white"),
+    new Menu(6.1, 'Requisition', '/beacon/procurement/requisition', null, 'text_snippet', null, true, 6, "white"),
+    new Menu(6.2, 'Quotations', '/beacon/procurement/quotations', null, 'request_quote', null, true, 6, "white"),
+    new Menu(6.3, 'Quotaion Review', '/beacon/procurement/quotation-review', null, 'rate_review', null, true, 6, "white"),
+    new Menu(6.4, 'Purchase Orders', '/beacon/procurement/purchase-orders', null, 'receipt', null, true, 6, "white"),
+    new Menu(6.5, 'Work Orders', '/beacon/procurement/work-orders', null, 'list_alt', null, true, 6, "white"),
     
     
     new Menu(7, 'Inventory', '/beacon/inventory/consignment', null, 'business_center', null, true, 0, "white"),
     new Menu(7.1, 'Consignment', '/beacon/inventory/consignment', null, 'local_shipping', null, true, 7, "white"),
     new Menu(7.2, 'Gate Pass', '/beacon/inventory/gate', null, 'recent_actors', null, true, 7, "white"),
-    new Menu(7.3, 'GRN', '/beacon/inventory/grn', null, 'analytics', null, true, 7, "white"),
-    new Menu(7.4, 'Item Master', '/beacon/inventory/item', null, 'business_center', null, true, 7, "white"),
-    new Menu(7.5, 'Material Issues', '/beacon/inventory/material', null, 'business_center', null, true, 7, "white"),
-    new Menu(7.6, 'Stock Disposal', '/beacon/inventory/stock', null, 'business_center', null, true, 7, "white"),
+    new Menu(7.3, 'GRN', '/beacon/inventory/grn', null, 'local_post_office', null, true, 7, "white"),
+    new Menu(7.4, 'Item Master', '/beacon/inventory/item', null, 'miscellaneous_services', null, true, 7, "white"),
+    new Menu(7.5, 'Material Issues', '/beacon/inventory/material', null, 'restore_page', null, true, 7, "white"),
+    new Menu(7.6, 'Stock Disposal', '/beacon/inventory/stock', null, 'storefront', null, true, 7, "white"),
     new Menu(7.7, 'Vendor Master', '/beacon/inventory/vendor', null, 'business_center', null, true, 7, "white"),
     
     
     
     new Menu(8, 'Assets', '/beacon/assets', null, 'account_balance', null, true, 0, "white"),
-    new Menu(8.1, 'Asset Disposal', '/beacon/assets', null, 'account_balance', null, true, 8, "white"),
-    new Menu(8.2, 'Asset Master', '/beacon/assets/asset-master', null, 'account_balance', null, true, 8, "white"),
-    new Menu(8.3, 'Asset Maintenance', '/beacon/assets/asset-maintenance', null, 'account_balance', null, true, 8, "white"),
-    new Menu(8.4, 'Asset Transfer', '/beacon/assets/asset-transfer', null, 'account_balance', null, true, 8, "white"),
+    new Menu(8.1, 'Asset Disposal', '/beacon/assets', null, 'account_tree', null, true, 8, "white"),
+    new Menu(8.2, 'Asset Master', '/beacon/assets/asset-master', null, 'miscellaneous_services', null, true, 8, "white"),
+    new Menu(8.3, 'Asset Maintenance', '/beacon/assets/asset-maintenance', null, 'engineering', null, true, 8, "white"),
+    new Menu(8.4, 'Asset Transfer', '/beacon/assets/asset-transfer', null, 'swap_horiz', null, true, 8, "white"),
     
     
     new Menu(9, 'Finance', '/beacon/finance/billing', null, 'attach_money', null, true, 0, "white"),
