@@ -45,6 +45,13 @@ export class BreadcrumbComponent {
 
             "Analytics": "This is Analytics Screen",
 
+            "Manage": "This is Manage Screen",
+            "Clients": "This is Clients Screen",
+            "Grid View": "This is Grid View Screen",
+            "Map View": "This is Map View Screen",
+            "Contacts": "This is Contacts Screen",
+
+
             "Projects": "This is Project Screen",
             "Project Dashboard": "Activities that are carried on selected project can be viewed and managed.",
             "Scheduling":"This is Scheduling Screen",
@@ -86,7 +93,6 @@ export class BreadcrumbComponent {
             "Payables":"This is Payables Screen",
 
             "Admin":"This is Admin Screen",
-            "Clients":"This is Clients Screen",
             "Roles":"This is Roles Screen",
             "Users":"This is Users Screen",
             "Master Data":"This is Admin Screen",

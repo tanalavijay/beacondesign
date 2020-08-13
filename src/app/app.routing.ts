@@ -16,10 +16,10 @@ export const routes: Routes = [
         data: { breadcrumb: "Analytics" },
       },  
       {
-        path: "projects",
-        loadChildren: "./beacon/projects/projects.module#ProjectsModule",
+        path: "manage",
+        loadChildren: "./beacon/manage/manage.module#ManageModule",
         data: { breadcrumb: "" },
-      },        
+      },             
       {
         path: "scheduling",
         loadChildren: "./beacon/scheduling/scheduling.module#SchedulingModule",
