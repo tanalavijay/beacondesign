@@ -35,16 +35,13 @@
                         <app-universal-filter></app-universal-filter>
                     </a> -->
                     <button mat-icon-button><mat-icon title="Notifications">notification_important</mat-icon></button>
-                    <button mat-icon-button><mat-icon title="Message Center">message</mat-icon></button>
+                    <button mat-icon-button [routerLink]="['/beacon/message-center']"><mat-icon title="Message Center">message</mat-icon></button>
                     <button mat-icon-button><mat-icon title="Approvals">verified_user</mat-icon></button>
                     <app-fullscreen></app-fullscreen>
                     <app-user-menu></app-user-menu>
                 </div>
             </div>
         </mat-toolbar>
-
-
-
         <div id="main-content" class="inner-sidenav-content transition-2" perfectScrollbar
             [disabled]="!settings.fixedHeader">
             <app-breadcrumb></app-breadcrumb>

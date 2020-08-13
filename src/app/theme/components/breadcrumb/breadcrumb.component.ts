@@ -101,7 +101,7 @@ export class BreadcrumbComponent {
             "Settings":"This is Settings Screen",
             "Lookup Options":"This is Lookup Options Screen",
             "Announcements":"This is Announcements Screen",
-            
+            "Message Center" : "All messages can be viewed here",
             "Screen":"This is a Screen",
         };
         this.router.events.subscribe(event => {

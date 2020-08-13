@@ -6,6 +6,17 @@ import { AssetDisposalComponent } from './asset-disposal/asset-disposal.componen
 import { AssetMaintenanceComponent } from './asset-maintenance/asset-maintenance.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { AddassetDialogComponent } from './asset-master/addasset-dialog/addasset-dialog.component';
+import { AddassetGridcolumnsComponent } from './asset-master/addasset-gridcolumns/addasset-gridcolumns.component';
+import { OwlNativeDateTimeModule, OwlDateTimeModule } from 'ng-pick-datetime';
+import { LegendEntryComponent, NgxChartsModule } from '@swimlane/ngx-charts';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DndModule } from 'ngx-drag-drop';
+import { DragDropModule } from 'primeng/primeng';
+import { MglTimelineModule } from 'angular-mgl-timeline';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
 
 export const routes = [
   { path: '', component:AssetDisposalComponent, pathMatch: 'full' },
@@ -15,11 +26,13 @@ export const routes = [
 ];
 
 @NgModule({
-  declarations: [AssetMasterComponent, AssetTransferComponent, AssetDisposalComponent, AssetMaintenanceComponent],
+  declarations: [AssetMasterComponent, AssetTransferComponent, AssetDisposalComponent, AssetMaintenanceComponent, AddassetDialogComponent, AddassetGridcolumnsComponent],
   imports: [
-    CommonModule,RouterModule.forChild(routes),
-    SharedModule
-    
-  ]
+    CommonModule,NgxChartsModule,RouterModule.forChild(routes),
+    SharedModule,ConfirmationPopoverModule,ReactiveFormsModule,FormsModule,
+    OwlDateTimeModule,OwlNativeDateTimeModule,DndModule,DragDropModule,MglTimelineModule
+  ],
+  providers: [AlertService],
+  entryComponents:[AddassetDialogComponent,AddassetGridcolumnsComponent,DeleteConfirmDialogComponent]
 })
 export class AssetsModule { }

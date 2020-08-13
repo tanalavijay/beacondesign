@@ -1,20 +1,21 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { SharedModule } from "src/app/shared/shared.module";
-import { RouterModule } from "@angular/router";
-import { AlertService } from "src/app/shared/services/alert.service";
-import { ClientsComponent } from "./clients/clients.component";
-import { RolesComponent } from "./roles/roles.component";
-import { UsersComponent } from "./users/users.component";
-import { MasterDataComponent } from "./master-data/master-data.component";
-import { KanbanComponent } from "./kanban/kanban.component";
-import { ColorCodesComponent } from "./color-codes/color-codes.component";
-import { SettingsComponent } from "./settings/settings.component";
-import { LookupOptionsComponent } from "./lookup-options/lookup-options.component";
-import { AnnouncementsComponent } from "./announcements/announcements.component";
-import { UserdialogComponent } from "./users/userdialog/userdialog.component";
-import { RolesDialogComponent } from "./roles/roles-dialog/roles-dialog.component";
-import { DragulaModule } from "ng2-dragula";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { ClientsComponent } from './clients/clients.component';
+import { RolesComponent } from './roles/roles.component';
+import { UsersComponent } from './users/users.component';
+import { MasterDataComponent } from './master-data/master-data.component';
+import { KanbanComponent } from './kanban/kanban.component';
+import { ColorCodesComponent } from './color-codes/color-codes.component';
+import { SettingsComponent } from './settings/settings.component';
+import { LookupOptionsComponent } from './lookup-options/lookup-options.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { MasterDialogComponent } from './master-data/master-dialog/master-dialog.component';
+import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
+import { DragulaModule } from 'ng2-dragula';
 
 export const routes = [
   { path: "", component: ClientsComponent, pathMatch: "full" },
@@ -59,21 +60,12 @@ export const routes = [
 ];
 
 @NgModule({
-  declarations: [
-    ClientsComponent,
-    RolesComponent,
-    UsersComponent,
-    MasterDataComponent,
-    KanbanComponent,
-    ColorCodesComponent,
-    SettingsComponent,
-    LookupOptionsComponent,
-    AnnouncementsComponent,
-    UserdialogComponent,
-    RolesDialogComponent,
+  declarations: [ClientsComponent, RolesComponent, UsersComponent,MasterDataComponent, KanbanComponent , ColorCodesComponent, SettingsComponent, LookupOptionsComponent, AnnouncementsComponent, MasterDialogComponent ],
+  imports: [
+    CommonModule,RouterModule.forChild(routes),
+    SharedModule,ConfirmationPopoverModule, DragulaModule.forRoot()
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule, DragulaModule.forRoot()],
   providers: [AlertService],
-  entryComponents: [RolesDialogComponent, UserdialogComponent],
+  entryComponents : [MasterDialogComponent,DeleteConfirmDialogComponent]
 })
 export class AdminModule {}
