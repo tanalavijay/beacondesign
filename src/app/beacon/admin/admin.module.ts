@@ -16,6 +16,8 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { MasterDialogComponent } from './master-data/master-dialog/master-dialog.component';
 import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
 import { DragulaModule } from 'ng2-dragula';
+import { RolesDialogComponent } from './roles/roles-dialog/roles-dialog.component';
+import { UserdialogComponent } from './users/userdialog/userdialog.component';
 
 export const routes = [
   { path: "", component: ClientsComponent, pathMatch: "full" },
@@ -60,12 +62,12 @@ export const routes = [
 ];
 
 @NgModule({
-  declarations: [ClientsComponent, RolesComponent, UsersComponent,MasterDataComponent, KanbanComponent , ColorCodesComponent, SettingsComponent, LookupOptionsComponent, AnnouncementsComponent, MasterDialogComponent ],
+  declarations: [ClientsComponent, RolesComponent, UsersComponent,MasterDataComponent, KanbanComponent , ColorCodesComponent, SettingsComponent, LookupOptionsComponent, AnnouncementsComponent, MasterDialogComponent ,RolesDialogComponent,UserdialogComponent],
   imports: [
     CommonModule,RouterModule.forChild(routes),
     SharedModule,ConfirmationPopoverModule, DragulaModule.forRoot()
   ],
   providers: [AlertService],
-  entryComponents : [MasterDialogComponent,DeleteConfirmDialogComponent]
+  entryComponents : [MasterDialogComponent,DeleteConfirmDialogComponent,RolesDialogComponent,UserdialogComponent]
 })
 export class AdminModule {}
