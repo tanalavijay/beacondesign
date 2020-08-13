@@ -73,4 +73,12 @@ export class AssetMasterComponent implements OnInit {
       }
     });
    }
+   scrollGrid(side) {
+    var ele = document.getElementById('grid-table-container');
+    if (side == 'right')
+        ele.scrollLeft += 210;
+    else
+        ele.scrollLeft -= 210;
+   }
+
 }
