@@ -3,6 +3,7 @@ import { ModuleWithProviders } from "@angular/core";
 import { LayoutComponent } from "./layout/layout.component";
 import { LoginComponent } from "./login/login.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { MessageCenterComponent } from "./beacon/message-center/message-center.component";
 
 export const routes: Routes = [
   {
@@ -62,7 +63,11 @@ export const routes: Routes = [
         data: { breadcrumb: "Admin" },
       },        
  
-     
+      {
+        path: "message-center",
+        component: MessageCenterComponent,
+        data: { breadcrumb: "Message Center" },
+      },   
     ],
   },
   { path: "", redirectTo: "login", pathMatch: "full" },

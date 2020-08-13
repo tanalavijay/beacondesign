@@ -42,7 +42,7 @@ clienttype = [{clienttype:"Architect",Status:true},
 {clienttype:"Real Estate",Status:true}]
 
 projecttype = [{projecttype:"Construction",Status:true},
-{projectttype:"Engineering",Status:true},
+{projecttype:"Engineering",Status:true},
 {projecttype:"Internal",Status:true},
 {projecttype:"Legal",Status:true},
 {projecttype:"Real Estate",Status:true}]

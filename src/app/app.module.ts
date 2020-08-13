@@ -50,6 +50,7 @@ import {
   AgmJsMarkerClustererModule,
   ClusterManager
 } from "@agm/js-marker-clusterer";
+import { MessageCenterComponent } from './beacon/message-center/message-center.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -110,6 +111,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ProfileDialogComponent,
     AddNoteDialogComponent,
     UniversalFilterComponent,
+    MessageCenterComponent,
   ],
   entryComponents: [
     VerticalMenuComponent,
