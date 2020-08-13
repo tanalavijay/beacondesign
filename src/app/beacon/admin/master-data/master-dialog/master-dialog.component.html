@@ -298,7 +298,7 @@
   </form>
 </div>
 <mat-dialog-actions class="col-sm-12" align="end">
-  <button *ngIf="!concepts"mat-raised-button [disabled]="!conceptForm.valid" 
+  <button mat-raised-button [disabled]="!conceptForm.valid" 
     [ngClass]="!conceptForm.valid ? '' : 'btn-primary'">
     <mat-icon>send</mat-icon>&nbsp;Save
   </button>

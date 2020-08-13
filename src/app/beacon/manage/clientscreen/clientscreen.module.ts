@@ -13,6 +13,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { AddClientDialogComponent } from './add-client-dialog/add-client-dialog.component';
+import { ClientscreenComponent } from './clientscreen.component';
 
 
 export const routes = [
@@ -23,7 +24,7 @@ export const routes = [
 
 
 @NgModule({
-  declarations: [ClientGridviewComponent, ClientMapviewComponent,AddClientDialogComponent],
+  declarations: [ClientGridviewComponent, ClientMapviewComponent,AddClientDialogComponent,ClientscreenComponent],
   imports: [
     CommonModule,NgxChartsModule,RouterModule.forChild(routes),
     SharedModule,ConfirmationPopoverModule,ReactiveFormsModule,FormsModule,
