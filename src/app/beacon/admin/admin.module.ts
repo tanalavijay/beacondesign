@@ -12,6 +12,9 @@ import { ColorCodesComponent } from './color-codes/color-codes.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LookupOptionsComponent } from './lookup-options/lookup-options.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { MasterDialogComponent } from './master-data/master-dialog/master-dialog.component';
+import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
 
 export const routes = [
   { path: '', component:ClientsComponent, pathMatch: 'full' },
@@ -27,11 +30,12 @@ export const routes = [
 ];
 
 @NgModule({
-  declarations: [ClientsComponent, RolesComponent, UsersComponent,MasterDataComponent, KanbanComponent , ColorCodesComponent, SettingsComponent, LookupOptionsComponent, AnnouncementsComponent ],
+  declarations: [ClientsComponent, RolesComponent, UsersComponent,MasterDataComponent, KanbanComponent , ColorCodesComponent, SettingsComponent, LookupOptionsComponent, AnnouncementsComponent, MasterDialogComponent ],
   imports: [
     CommonModule,RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,ConfirmationPopoverModule
   ],
   providers: [AlertService],
+  entryComponents : [MasterDialogComponent,DeleteConfirmDialogComponent]
 })
 export class AdminModule { }

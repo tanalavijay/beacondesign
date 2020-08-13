@@ -1,5 +1,404 @@
-<div class="row col-12 d-flex">
-  <div class="col-6 mx-auto middle">
-    <img style="margin-top: 15%; display: flex; margin-left: auto; margin-right: auto;" src="/assets/img/under-construction.png" height="400px" alt="under-construction">
+<div class="col-sm-12">
+  <div class="col-sm-12 no-padding" style="margin-top: 20px;">
+    <button [ngClass]="{'tabActive': job === true}" mat-raised-button (click)="fnJob()"
+      class="mat-raised-button tab"> Job Codes
+    </button>
+    <button [ngClass]="{'tabActive': expense === true}" mat-raised-button (click)="fnExpense()"
+      class="mat-raised-button tab"> Expense Codes
+    </button>
+    <button [ngClass]="{'tabActive': asset === true}" mat-raised-button (click)="fnAsset()"
+      class="mat-raised-button tab"> Asset Categories
+    </button>
+    <button [ngClass]="{'tabActive': client === true}" mat-raised-button (click)="fnClient()"
+    class="mat-raised-button tab"> Client Types
+  </button>
+  <button [ngClass]="{'tabActive': project === true}" mat-raised-button (click)="fnProject()"
+  class="mat-raised-button tab"> Project Types
+  </button>
+  <button [ngClass]="{'tabActive': lead === true}" mat-raised-button (click)="fnLead()"
+   class="mat-raised-button tab"> Lead Sources
+  </button>
+  <button [ngClass]="{'tabActive': level === true}" mat-raised-button (click)="fnLevel()"
+   class="mat-raised-button tab"> RFQ Levels
+  </button>
+  <button [ngClass]="{'tabActive': delay === true}" mat-raised-button (click)="fnDelay()"
+   class="mat-raised-button tab"> Delay Reasons
+   </button>
   </div>
+  <div class="col-sm-6 pull-right no-padding">
+    <button *ngIf="job" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('job')">
+      <mat-icon>add</mat-icon> Add Job Code
+    </button>
+    <button *ngIf="expense" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('expense')">
+      <mat-icon>add</mat-icon> Add Expense Code
+    </button>
+    <button *ngIf="asset" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('asset')">
+      <mat-icon>add</mat-icon> Add Assets Category
+    </button>
+    <button *ngIf="client" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('client')">
+      <mat-icon>add</mat-icon> Add Client Type
+    </button>
+    <button *ngIf="project" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('project')">
+      <mat-icon>add</mat-icon> Add Project Type
+    </button>
+    <button *ngIf="lead" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('lead')">
+      <mat-icon>add</mat-icon> Add Lead Source
+    </button>
+    <button *ngIf="level" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('level')">
+      <mat-icon>add</mat-icon> Add Potential Level
+    </button>
+    <button *ngIf="delay" mat-raised-button class="pull-right  btn-primary" (click)="openJobCodeDialog('delay')">
+      <mat-icon>add</mat-icon> Add Delay Reasons
+    </button>
+  </div>
+</div>
+
+<div *ngIf="job" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Job Code</th>
+              <th>Job Code Title</th>
+              <th>Job Code Category</th>
+              <th>Chargeout Rate</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of jobcodes">
+            <td >
+              {{item.code}}
+            </td>
+            <td >
+              {{item.title}}
+            </td>      
+            <td>
+              {{item.cat}}
+            </td>
+            <td>
+              {{item.rate}}
+            </td> 
+           
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Job Code" (click)="openJobCodeDialog('job')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Job Code"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="expense" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Expense Code</th>
+              <th>Unit</th>
+              <th>Limit Type</th>
+              <th>Limit Amount</th>
+              <th>Rate</th>
+              <th>Budget Default</th>
+              <th>Reimbursable</th>
+              <th>Attachment Required</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of expensecodes">
+            <td >
+              {{item.code}}
+            </td>
+            <td >
+              {{item.unit}}
+            </td>      
+            <td>
+              {{item.type}}
+            </td>
+            <td>
+              {{item.amount}}
+            </td> 
+            <td >
+              {{item.rate}}
+            </td>
+            <td >
+              {{item.budget}}
+            </td>      
+            <td>
+              {{item.reimbursable}}
+            </td>
+            <td>
+              {{item.attachment}}
+            </td> 
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Expense Code" (click)="openJobCodeDialog('expense')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Expense Code"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="asset" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Asset Category</th>
+              <th>Category Prefix</th>
+              <th>Conditions</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of assetcategories">
+            <td >
+              {{item.assetcat}}
+            </td>
+            <td >
+              {{item.prefix}}
+            </td>      
+            <td>
+              {{item.conditions}}
+            </td>
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Asset" (click)="openJobCodeDialog('asset')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Asset"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="client" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Client Type</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of clienttype">
+            <td >
+              {{item.clienttype}}
+            </td>
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Client Type" (click)="openJobCodeDialog('client')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Client Type"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="project" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Project Type</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of projecttype">
+            <td >
+              {{item.projecttype}}
+            </td>
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Project type" (click)="openJobCodeDialog('project')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Project Type"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="lead" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Lead Source</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of leadsource">
+            <td >
+              {{item.leadsource}}
+            </td>
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update lead source" (click)="openJobCodeDialog('lead')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete lead source"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="level" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Potential Level</th>
+              <th>Color</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of levels">
+            <td >
+              {{item.leadsource}}
+            </td>
+            <td style="text-align: center !important;">
+              <i class="fa fa-circle dot-menu" [style.color]="item.colorCode"> </i>
+          </td>
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Lead Source" (click)="openJobCodeDialog('level')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Lead Source"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+<div *ngIf="delay" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+  <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+          <tr class="tr-grid-header">
+              <th>Delay Reason</th>
+              <th style="text-align: center !important;">Status</th>
+              <th style="text-align: center !important;">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of delayreason">
+            <td >
+              {{item.delayreason}}
+            </td>
+            <td class="pad-left inner-screen text-center" style="cursor: pointer;">
+              <a mwlConfirmationPopover
+                 [popoverTitle]="popoverStatusTitle" 
+                 [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="cancelClicked = true"
+                   (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!item.Status" style="color: red">Inactive</span>
+                  <span *ngIf="item.Status" style="color:#1c4f86">Active</span>
+              </a>
+             </td>
+            
+            <td  class="text-center">
+              <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Delay Reason" (click)="openJobCodeDialog('delay')">
+                  <i class="fa fa-edit" style="color: cornflowerblue"></i>
+              </a>
+              <a ><i class="fa fa-trash red" matTooltip="Delete Delay Reason"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+          </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
 </div>
