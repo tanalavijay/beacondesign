@@ -17,6 +17,11 @@ import { DragDropModule } from 'primeng/primeng';
 import { MglTimelineModule } from 'angular-mgl-timeline';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
+import { AddassetmaintainenceDialogComponent } from './asset-master/addassetmaintainence-dialog/addassetmaintainence-dialog.component';
+import { ServiceHistoryDialogComponent } from './asset-maintenance/service-history-dialog/service-history-dialog.component';
+import { AssettransferGridcolumnsComponent } from './asset-transfer/assettransfer-gridcolumns/assettransfer-gridcolumns.component';
+import { AssetmaintenanceGridcolumnsComponent } from './asset-maintenance/assetmaintenance-gridcolumns/assetmaintenance-gridcolumns.component';
+import { AssetdisposalGridcolumnsComponent } from './asset-disposal/assetdisposal-gridcolumns/assetdisposal-gridcolumns.component';
 
 export const routes = [
   { path: '', component:AssetDisposalComponent, pathMatch: 'full' },
@@ -26,13 +31,13 @@ export const routes = [
 ];
 
 @NgModule({
-  declarations: [AssetMasterComponent, AssetTransferComponent, AssetDisposalComponent, AssetMaintenanceComponent, AddassetDialogComponent, AddassetGridcolumnsComponent],
+  declarations: [AssetMasterComponent, AssetTransferComponent, AssetDisposalComponent, AssetMaintenanceComponent, AddassetDialogComponent, AddassetGridcolumnsComponent, AddassetmaintainenceDialogComponent, ServiceHistoryDialogComponent, AssettransferGridcolumnsComponent, AssetmaintenanceGridcolumnsComponent,AssetdisposalGridcolumnsComponent],
   imports: [
     CommonModule,NgxChartsModule,RouterModule.forChild(routes),
     SharedModule,ConfirmationPopoverModule,ReactiveFormsModule,FormsModule,
     OwlDateTimeModule,OwlNativeDateTimeModule,DndModule,DragDropModule,MglTimelineModule
   ],
   providers: [AlertService],
-  entryComponents:[AddassetDialogComponent,AddassetGridcolumnsComponent,DeleteConfirmDialogComponent]
+  entryComponents:[AddassetDialogComponent,AddassetGridcolumnsComponent,AssetdisposalGridcolumnsComponent,AssetmaintenanceGridcolumnsComponent,DeleteConfirmDialogComponent,AddassetmaintainenceDialogComponent,ServiceHistoryDialogComponent,AssettransferGridcolumnsComponent]
 })
 export class AssetsModule { }

@@ -11,6 +11,13 @@ import { MaterialComponent } from './material/material.component';
 import { StockComponent } from './stock/stock.component';
 import { VendorMasterComponent } from './vendor-master/vendor-master.component';
 import { StockDisposalComponent } from './stock-disposal/stock-disposal.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
+import { AddvendirDialogComponent } from './vendor-master/addvendir-dialog/addvendir-dialog.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { BranchComponent } from './vendor-master/branch/branch.component';
+import { AddbranchDialogComponent } from './vendor-master/branch/addbranch-dialog/addbranch-dialog.component';
 
 export const routes = [
   { path: '', component:ConsignmentsComponent, pathMatch: 'full' },
@@ -22,16 +29,18 @@ export const routes = [
    { path: 'stock', component: StockComponent, data: { breadcrumb: "Stock Transfer" } },
    { path: 'stock-disposal', component: StockDisposalComponent, data: { breadcrumb: "Stock Disposal" } },
    { path: 'vendor', component: VendorMasterComponent, data: { breadcrumb: "Vendor master" } },
-
+   { path: 'branch', component: BranchComponent, pathMatch: 'full', data: { breadcrumb: 'Branch' }}
 ];
 
 @NgModule({
-  declarations: [ConsignmentsComponent, GateComponent, GRNComponent, ItemMasterComponent, MaterialComponent, StockComponent, VendorMasterComponent,StockDisposalComponent],
+  declarations: [ConsignmentsComponent, GateComponent, GRNComponent, ItemMasterComponent, MaterialComponent, StockComponent, VendorMasterComponent,StockDisposalComponent, AddvendirDialogComponent, BranchComponent, AddbranchDialogComponent],
   imports: [
     CommonModule,RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,ConfirmationPopoverModule,ReactiveFormsModule,FormsModule,
+    OwlDateTimeModule,OwlNativeDateTimeModule
   ],
   providers: [AlertService],
+  entryComponents:[DeleteConfirmDialogComponent,AddvendirDialogComponent,AddbranchDialogComponent]
 })
 export class InventoryModule { }
 

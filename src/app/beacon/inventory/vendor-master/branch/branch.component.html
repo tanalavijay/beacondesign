@@ -1,0 +1,58 @@
+<div class="flex-p">
+    <div class="row wrap">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="pills w-100 flex-p">
+        </div>
+      </div>
+      <div class="col-xs-6" style="margin-right:0px !important">
+        <div class="w-100 flex-p">
+            <!-- <button mat-raised-button class="pull-right  btn-primary  margin-right-10"
+            (click)="openBranchDialog(null)">
+            <mat-icon>add</mat-icon> Add
+            Branch
+          </button> -->
+            <button mat-raised-button class="pull-right  btn-primary  margin-right-10"
+            (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon> 
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-fluid main-section">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="row my-4">
+          <div class="col-lg-3 col-md-12 my-4">
+            <div class="card-section border rounded  mx-4">
+              <div class="card-header rounded card-header-add" style="height: 170px !important;">
+                <img src="../../../../../../assets/img/plus.png" (click)="openBranchDialog(null)" class="card-header-title p-4"
+                  style="cursor: pointer;height: 160px;" alt="" />
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let core of coreModules;let i = index" class="col-lg-3 col-md-12 my-4">
+            <div class="card-section border rounded  mx-4" >
+              <div  class="card-header rounded card-header-seven"style="height:170px">
+                  <span >
+                   <a style="float: left;"> {{core.subject1}} </a>
+                   <a style="float: right;"> <i class="fa fa-circle fa-1x dot-menu pull-right" aria-hidden="true" [style.color]="core.colorcode" style="display:inline-block;margin-top: 2px;"></i> </a> 
+                  </span><br><br>
+                  <span  style="float: left;">{{core.name}}</span> <br>
+                  <span  style="float: left;">{{core.subject}}</span> <br>
+                  <span  style="float: left;">{{core.location}}</span> <br>
+                <div class="pull-right" style="margin-top: 10px !important;">
+                  <button class="pull-right CancelClass" style="margin-right: 20px !important;height: 40px;" (click)="openDeleteDialog(core)" mat-raised-button>&nbsp;Delete&nbsp;</button>
+                  <!-- <a  style="margin-right: 10px !important;height: 40px;cursor: pointer;" matTooltip="View Notes">
+                    <i class="fa fa-info-circle fa-1x" aria-hidden="true"style="color: cornflowerblue"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

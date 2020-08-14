@@ -3,6 +3,7 @@ import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dial
 import { MatDialog } from '@angular/material';
 import { AddassetGridcolumnsComponent } from './addasset-gridcolumns/addasset-gridcolumns.component';
 import { AddassetDialogComponent } from './addasset-dialog/addasset-dialog.component';
+import { AddassetmaintainenceDialogComponent } from './addassetmaintainence-dialog/addassetmaintainence-dialog.component';
 
 @Component({
   selector: 'app-asset-master',
@@ -43,6 +44,20 @@ export class AssetMasterComponent implements OnInit {
     });
   }
 
+  openPopup(){
+    let dialogRef = this.dialog.open(AddassetmaintainenceDialogComponent, {
+      height: 'auto',
+      width: '700px',
+      autoFocus: false,
+    });
+
+    dialogRef.afterClosed().subscribe(prospects => {
+      if (prospects == 'save') {
+        
+      }
+    });
+  }
+  
   openGridColumnsDialog(stat) {
     let dialogRef = this.dialog.open(AddassetGridcolumnsComponent, {
       data: stat,
@@ -57,7 +72,7 @@ export class AssetMasterComponent implements OnInit {
       }
     });
   }
-
+  
   dowloadBulkUploadCampaignTemplate(item) {}
 
    openDeleteDialog(value) {
@@ -73,6 +88,7 @@ export class AssetMasterComponent implements OnInit {
       }
     });
    }
+
    scrollGrid(side) {
     var ele = document.getElementById('grid-table-container');
     if (side == 'right')
