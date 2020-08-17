@@ -13,6 +13,10 @@ import { QuotaionReviewComponent } from './quotaion-review/quotaion-review.compo
 import { QuotationsComponent } from './quotations/quotations.component';
 import { RequisitionComponent } from './requisition/requisition.component';
 import { WorkOrdersComponent } from './work-orders/work-orders.component';
+import { AddrequistionDialogComponent } from './requisition/addrequistion-dialog/addrequistion-dialog.component';
+import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
+import { SendQuotationComponent } from './quotations/send-quotation/send-quotation.component';
+import { QuotationDialogComponent } from './quotations/send-quotation/quotation-dialog/quotation-dialog.component';
 
 export const routes = [
   { path: '', component:ProcurementComponent, pathMatch: 'full' },
@@ -21,16 +25,18 @@ export const routes = [
   { path: 'quotations', component: QuotationsComponent, data: { breadcrumb: "Quotations" } },
   { path: 'requisition', component: RequisitionComponent, data: { breadcrumb: "Requisition" } },
   { path: 'work-orders', component: WorkOrdersComponent, data: { breadcrumb: "Work Orders" } },
+  { path: 'sendquotation', component: SendQuotationComponent, pathMatch: 'full', data: { breadcrumb: 'Quotation' }}
 ];
 
 @NgModule({
-  declarations: [ProcurementComponent,PurchaseOrdersComponent ,QuotaionReviewComponent ,QuotationsComponent ,RequisitionComponent, WorkOrdersComponent],
+  declarations: [ProcurementComponent,PurchaseOrdersComponent ,QuotaionReviewComponent ,QuotationsComponent ,RequisitionComponent, WorkOrdersComponent, AddrequistionDialogComponent, SendQuotationComponent, QuotationDialogComponent],
   imports: [
     CommonModule,NgxChartsModule,RouterModule.forChild(routes),
     SharedModule,ConfirmationPopoverModule,ReactiveFormsModule,FormsModule,
     OwlDateTimeModule,OwlNativeDateTimeModule
   ],
   providers: [AlertService],
+  entryComponents:[AddrequistionDialogComponent,DeleteConfirmDialogComponent,QuotationDialogComponent]
 })
 export class ProcurementModule { }
 

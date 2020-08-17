@@ -1,0 +1,65 @@
+<div class="flex-p">
+  <div class="row wrap">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="pills w-100 flex-p">
+      </div>
+    </div>
+    <div class="col-xs-6" style="margin-right:0px !important">
+      <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right  btn-primary  margin-right-10"
+          (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon> 
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="row wrap" #resizedDiv style="margin-top:10px!important;">
+    <div class="flex-p w-100" style="padding: 1px !important;">
+      <div class="table-responsive">
+        <div class="col-sm-8">
+            <form novalidate [formGroup]="docxForm">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                      <tr class="tr-grid-header">
+                        <th style="text-align: center !important">Select</th>
+                        <th style="text-align: center !important;width: 220px !important;">Vendor Name</th>
+                        <th style="text-align: center !important">Branch</th>
+                        <th style="text-align: center !important" >Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr formArrayName="jobCodeDetails" *ngFor="let item of docxForm.get('jobCodeDetails')['controls']; let index = index;">
+                        <ng-container [formGroupName]="index">
+                            <td style="text-align: center !important" >
+                                <mat-checkbox formControlName="serviceDate" [checked]="showEmpty"></mat-checkbox>
+                            </td>
+                          <td>
+                            <mat-select class='form-control' formControlName="fromLocation" placeholder="-- Vendor --">
+                              <mat-option *ngFor="let option of vendors" [value]="option.vendor_id">{{option.vendor_name}}</mat-option>
+                            </mat-select>
+                           </td>
+                          <td>
+                            <mat-select class='form-control' formControlName="toLocation"  placeholder="-- Branch --">
+                             <mat-option *ngFor="let option of branch" [value]="option.branch_id">{{option.branch_name}}</mat-option>
+                           </mat-select>
+                             </td>
+                              <td style="text-align: center !important;cursor: pointer;" *ngIf="index == 0"><a (click)="addItem()"><mat-icon class="add">add</mat-icon></a></td>
+                            <td  style="text-align: center !important;cursor: pointer;" *ngIf="index > 0"><a (click)="removeItem(index)"><mat-icon class="delete">delete</mat-icon></a></td>
+                        </ng-container>
+                      </tr>
+                  </tbody>
+                </table>
+            </form>
+        </div>
+         
+    </div>
+  </div>
+  </div>
+  <div class="flex-p">
+      <div class="col-sm-8 margin-top-15" style="padding: 0px !important;">
+          <button class="pull-right" style="background: #3a8cab;color: #fff !important;margin-right: 10px !important" mat-raised-button (click)="openQuotationDialog(null)"><mat-icon>send</mat-icon>&nbsp;Send Quotation</button>
+      </div>
+  </div>

@@ -103,7 +103,8 @@ export class BreadcrumbComponent {
             "Announcements":"This is Announcements Screen",
             "Message Center" : "All messages can be viewed here",
             "Screen":"This is a Screen",
-            "Branch" : "This screen is used to manage the branches"
+            "Branch" : "This screen is used to manage the branches",
+            "Quotation" : "This screen is used to manage the quotations"
         };
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
