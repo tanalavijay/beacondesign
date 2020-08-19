@@ -1,0 +1,70 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+      <span class="title-left">Add Work Order</span>
+    </h1>
+  </div>
+  
+  <div mat-dialog-content>
+    <form class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Work Order #:&nbsp;</label>
+            <div class="col-sm-8">
+                <input type="text" maxlength="50" class="form-control" placeholder="Enter Work Order #">
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label">Work Order Name:&nbsp;</label>
+              <div class="col-sm-8">
+                  <input type="text" maxlength="50" class="form-control" placeholder="Enter Work Order Name">
+              </div>
+            </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Due Date:&nbsp;</label>
+            <div class="col-sm-8">
+                <input class="form-control"   placeholder="MM/DD/YYYY"
+                class="form-control" id="db1" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2">
+              <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+            </div>
+          </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Assigned To:&nbsp;</label>
+        <div class="col-sm-8">
+            <mat-select color="primary" placeholder="-- Select Assigned To--"  class="form-control"
+            required>
+            <mat-option *ngFor="let conuntry of countries" [value]="conuntry.conuntry_id">{{conuntry.conuntry_name}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-sm-4 add-member-label">Assigned From:&nbsp;</label>
+          <div class="col-sm-8">
+              <mat-select color="primary" placeholder="-- Select Assigned From --"  class="form-control"
+              required>
+              <mat-option *ngFor="let conuntry of type" [value]="conuntry.conuntry_id">{{conuntry.conuntry_name}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Location:&nbsp;</label>
+        <div class="col-sm-8">
+            <mat-select color="primary" placeholder="-- Select location --"  class="form-control"
+            required>
+            <mat-option *ngFor="let conuntry of make" [value]="conuntry.conuntry_id">{{conuntry.conuntry_name}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <mat-dialog-actions class="col-sm-12" align="end">
+    <button mat-raised-button class="btn-primary" (click)="close()">
+      <mat-icon>send</mat-icon>&nbsp;Save
+    </button>
+    <button mat-raised-button class="CancelClass" (click)="close()">
+      <mat-icon>cancel</mat-icon>&nbsp;Close
+    </button>
+  </mat-dialog-actions>
+

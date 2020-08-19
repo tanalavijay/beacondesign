@@ -1,0 +1,126 @@
+<div class="flex-p">
+    <div class="w-100">
+    <div class="row wrap">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="pills w-100 flex-p">
+        </div>
+      </div>
+      <div class="col-xs-6" style="margin-right:0px !important">
+        <div class="w-100 flex-p">
+            <button mat-raised-button class="pull-right  btn-primary  margin-right-10"
+            (click)="openCampaignDialog(null)">
+            <mat-icon>add</mat-icon> Add
+            Issue Slip
+          </button>
+          <button mat-raised-button color="primary" class="pull-right  margin-right-10"
+              (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list</mat-icon> Filter
+            </button>
+            <button mat-raised-button class="pull-right  btn-primary  margin-right-10"
+            (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon> 
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="col-sm-12" style="margin-top:10px;">
+        <mat-card class="col-sm-12" style="background: #dbe8f3 !important;">
+          <div class="col-sm-12"> 
+              <div class="col-sm-4">
+                  <label>Job Card Number :</label>
+                  <span>&nbsp;&nbsp;Test 1</span>
+              </div>
+              <div class="col-sm-4">
+                  <label>Job Card Date :</label>
+                  <span>&nbsp;&nbsp;18th Aug 2020</span>
+              </div>
+              <div class="col-sm-4">
+                  <label>Maintenance Type :</label>
+                  <span>&nbsp;&nbsp;Miscellanous</span>
+              </div>
+          </div>
+          <div class="col-sm-12" style="margin-top: 10px;"> 
+              <div class="col-sm-4">
+                  <label>Item Type :</label>
+                  <span>&nbsp;&nbsp;Backhoe Loader</span>
+              </div>
+              <div class="col-sm-4">
+                  <label>Item Make :</label>
+                  <span>&nbsp;&nbsp;TATA</span>
+              </div>
+              <div class="col-sm-4">
+                  <label>Item Model :</label>
+                  <span>&nbsp;&nbsp;TH 87</span>
+              </div>
+          </div>
+        </mat-card>
+        </div>
+            <div class="table-responsive w-100" id="grid-table-container" style="padding: 15px !important;">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                  <tr class="tr-grid-header">
+                    <th>Sl.No</th>
+                    <th>Material Issue #</th>
+                    <th>Material Issue Date</th>
+                    <th>Issued by</th>
+                    <th>Issued to</th>
+                    <th class="text-center">View/Add Items</th>
+                    <th>Details</th>
+                    <th>Status</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngIf="showEmpty">
+                    <td colspan="21" class="text-center">No records found</td>
+                  </tr>
+      
+                  <tr *ngFor="let campaign of consignments;let i = index">
+                    <td>
+                      {{i + 1}}
+                    </td>
+                    <td>
+                      {{campaign.issue}}
+                    </td>
+                    <td>
+                        {{campaign.date}}
+                      </td>
+                      <td>
+                        {{campaign.by}}
+                      </td>
+                    <td>
+                      {{campaign.to}}
+                    </td>
+                    <td class="text-center inner-screen">
+                        {{campaign.items}}</td>
+                    <td>
+                      Update</td>
+                     
+                    <td>
+                      {{campaign.status}}
+                    </td>
+      
+                    <td class="text-center">
+                        <a title="Edit Slip" style="cursor: pointer;"
+                          (click)="openCampaignDialog(campaign)">
+                          <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                        </a>
+                        <a title="Delete Slip" (click)="openDeleteDialog(campaign)">
+                          <i style="cursor: pointer;" title="Delete Campaign" class="fa fa-trash red"></i>
+                        </a>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="mine" mat-fab (click)="scrollGrid('right');">
+                <mat-icon style="color:#37474f">fast_forward</mat-icon>
+              </button>
+              <button class="mine" mat-fab style="margin-right: 78px !important;" (click)="scrollGrid('left');">
+                <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+              </button>
+            </div>
+        
+    </div>
+  </div>
+  

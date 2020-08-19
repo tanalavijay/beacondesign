@@ -74,7 +74,7 @@ export class BreadcrumbComponent {
             "Consignment":"This is Consignment Screen",
             "Gate Passes":"This is Gate Passes Screen",
             "GRN":"This is GRN Screen",
-            "Item Master":"This is Item Master Screen",
+            "Item Type":"This is Item Master Screen",
             "Material Issues":"This is Material Issues Screen",
             "Stock Transfer":"This is Stock Transfer Screen",
             "Stock Disposal":"This is Stock Disposal Screen",
@@ -104,7 +104,10 @@ export class BreadcrumbComponent {
             "Message Center" : "All messages can be viewed here",
             "Screen":"This is a Screen",
             "Branch" : "This screen is used to manage the branches",
-            "Quotation" : "This screen is used to manage the quotations"
+            "Quotation" : "This screen is used to manage the quotations",
+            "Material Issue Details" : "Spare parts/Material issued will be captured here",
+            "Item Make" : "This is a Item Make Screen",
+            "Item Model": "This is a Item Model Screen"
         };
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {

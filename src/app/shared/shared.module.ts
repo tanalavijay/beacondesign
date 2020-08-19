@@ -51,6 +51,7 @@ import { ScheduleDialogComponent } from '../schedule/schedule-dialog/schedule-di
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
+import { AdditemtypeDialogComponent } from './additemtype-dialog/additemtype-dialog.component';
 
 
 @NgModule({
@@ -152,7 +153,8 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-con
     ScheduleDialogComponent],
   declarations: [jqxKanbanComponent,
     ScheduleDialogComponent,
-    DeleteConfirmDialogComponent],
+    DeleteConfirmDialogComponent,
+    AdditemtypeDialogComponent],
   providers: [StyleManager,{ provide: LocationStrategy, useClass: HashLocationStrategy },]
 })
 export class SharedModule { }

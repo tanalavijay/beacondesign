@@ -8,14 +8,19 @@
           </div>
           <div class="col-xs-6" style="margin-right:0px !important">
             <div class="w-100 flex-p">
-                <button mat-raised-button class="pull-right  btn-primary  margin-right-10" (click)="openCampaignDialog(null)">
+                <!-- <button mat-raised-button class="pull-right  btn-primary  margin-right-10" (click)="openCampaignDialog(null)">
                     <mat-icon>add</mat-icon>
                     Add Item Type
-                  </button>
+                  </button> -->
               <button mat-raised-button color="primary" class="pull-right  margin-right-10"
                 (click)="filterToggle = !filterToggle">
                 <mat-icon>filter_list</mat-icon> Filter
               </button>
+              <button mat-raised-button class="pull-right  btn-primary  margin-right-10"
+              (click)="goBack()">
+              <mat-icon>arrow_back</mat-icon> 
+              Back
+            </button>
             </div>
           </div>
         </div>
@@ -26,8 +31,7 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead class="tbl-head">
               <tr class="tr-grid-header">
-                <th>Item Type</th>
-                <th class="text-center">Item Make</th>
+                <th>Item Model</th>
                 <th class="text-center">Status</th>
                 <th class="text-center">Actions</th>
               </tr>
@@ -41,7 +45,7 @@
                 <td>
                   {{campaign.type}}
                 </td>
-                  <td class="text-center"><a routerLink="/beacon/inventory/itemmake">{{campaign.items}}</a></td>
+                  <!-- <td class="text-center"><a routerLink="/beacon/inventory/materialdetails">{{campaign.items}}</a></td> -->
                   <td class="pad-left inner-screen text-center" style="cursor: pointer;">
                       <a mwlConfirmationPopover
                          [popoverTitle]="popoverStatusTitle" 

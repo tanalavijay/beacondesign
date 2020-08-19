@@ -17,6 +17,8 @@ import { AddrequistionDialogComponent } from './requisition/addrequistion-dialog
 import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
 import { SendQuotationComponent } from './quotations/send-quotation/send-quotation.component';
 import { QuotationDialogComponent } from './quotations/send-quotation/quotation-dialog/quotation-dialog.component';
+import { AddworkorderDialogComponent } from './work-orders/addworkorder-dialog/addworkorder-dialog.component';
+import { AddtaskDialogComponent } from './work-orders/addtask-dialog/addtask-dialog.component';
 
 export const routes = [
   { path: '', component:ProcurementComponent, pathMatch: 'full' },
@@ -29,14 +31,14 @@ export const routes = [
 ];
 
 @NgModule({
-  declarations: [ProcurementComponent,PurchaseOrdersComponent ,QuotaionReviewComponent ,QuotationsComponent ,RequisitionComponent, WorkOrdersComponent, AddrequistionDialogComponent, SendQuotationComponent, QuotationDialogComponent],
+  declarations: [ProcurementComponent,PurchaseOrdersComponent ,QuotaionReviewComponent ,QuotationsComponent ,RequisitionComponent, WorkOrdersComponent, AddrequistionDialogComponent, SendQuotationComponent, QuotationDialogComponent, AddworkorderDialogComponent, AddtaskDialogComponent],
   imports: [
     CommonModule,NgxChartsModule,RouterModule.forChild(routes),
     SharedModule,ConfirmationPopoverModule,ReactiveFormsModule,FormsModule,
     OwlDateTimeModule,OwlNativeDateTimeModule
   ],
   providers: [AlertService],
-  entryComponents:[AddrequistionDialogComponent,DeleteConfirmDialogComponent,QuotationDialogComponent]
+  entryComponents:[AddrequistionDialogComponent,DeleteConfirmDialogComponent,QuotationDialogComponent,AddworkorderDialogComponent,AddtaskDialogComponent]
 })
 export class ProcurementModule { }
 

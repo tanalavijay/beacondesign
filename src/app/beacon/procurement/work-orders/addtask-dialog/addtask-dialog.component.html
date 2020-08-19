@@ -1,0 +1,74 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+      <span class="title-left">Add Task</span>
+    </h1>
+  </div>
+  <div mat-dialog-content style="margin: -15px;margin-top: 10px !important;">
+      <form class="form-horizontal" style="margin-right: -8px; margin-left: -8px !important;" novalidate>
+          <div class="form-group">
+              <div class="aligning" style="display: flex;justify-content: space-evenly;align-content: center;">
+                  <label class="control-label add-member-label">Enter Task Description: </label>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                      <input type="text"  class="form-control"
+                           placeholder="Enter Task Description" >
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
+  <mat-dialog-actions class="col-sm-12" align="end">
+      <button mat-raised-button class="btn-primary" (click)="close()">
+        <mat-icon>send</mat-icon>&nbsp;Save
+      </button>
+    </mat-dialog-actions>
+    <div fxLayout="row wrap" #resizedDiv style="margin-top:60px!important;">
+        <div class="flex-p w-100" style="padding: 1px !important;">
+            <div class="table-responsive">
+                <div>
+                    <table id="example2" class="table table-bordered table-hover" style="width: 100%;">
+                        <thead class="tbl-head">
+                            <tr class="tr-grid-header">
+                                <th class="text-center" style="width: 20px !important;">Select</th>
+                                <th class="text-center">Item</th>
+                                <th class="text-center" style="width: 30px !important;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="showEmpty">
+                                <td colspan="3" class="text-center">No records found</td>
+                            </tr>
+                            <tr *ngFor="let spec of specs ; let i = index;">
+                                <ng-container *ngIf="i < 9">
+                                    <td style="text-align: center !important">
+                                        <mat-checkbox [checked]="spec.is_selected"
+                                            ></mat-checkbox>
+                                    </td>
+                                    <td *ngIf="spec.item.length <= 90"><span style="cursor: pointer;">
+                                            {{spec.item}} </span></td>
+                                    <td *ngIf="spec.item.length > 90"><span
+                                            title="{{spec.item}}" style="cursor: pointer;">
+                                            {{ spec.item }} </span></td>
+                                    <td style="text-align:center !important;">
+                                        <a placement="left" (cancel)="cancelClicked = true">
+                                            <i style="cursor: pointer;font-size:16px!important;" matTooltip="Edit Task  Description"
+                                                (click)="cancelClicked = true" class="fa fa-pencil-square-o" style="color: cornflowerblue"></i>
+                                        </a>
+                                        <a mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                                            [popoverMessage]="popoverMessage" placement="left" 
+                                            (cancel)="cancelClicked = true">
+                                            <i style="cursor: pointer;" title="Delete Task Description" class="fa fa-trash red"></i>
+                                        </a>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-dialog-actions class="col-sm-12" align="end">
+        <button mat-raised-button class="CancelClass" (click)="close()">
+          <mat-icon>cancel</mat-icon>&nbsp;Close
+        </button>
+      </mat-dialog-actions>

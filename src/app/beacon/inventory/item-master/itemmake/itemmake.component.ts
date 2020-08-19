@@ -1,26 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
 import { AdditemtypeDialogComponent } from 'src/app/shared/additemtype-dialog/additemtype-dialog.component';
+import { MatDialog } from '@angular/material';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-item-master',
-  templateUrl: './item-master.component.html',
-  styleUrls: ['./item-master.component.scss']
+  selector: 'app-itemmake',
+  templateUrl: './itemmake.component.html',
+  styleUrls: ['./itemmake.component.scss']
 })
-export class ItemMasterComponent implements OnInit {
+export class ItemmakeComponent implements OnInit {
 
   public showEmpty: boolean = false;
   filterToggle = false;
   public popoverStatusTitle: string = 'Confirm Status Change';
   public popoverStatusMessage: string = 'Are you sure you want to change status?';
   public cancelClicked: boolean = false;
-  consignments= [{type:"Forklift",items:"2",Status:true},
-  {type:"Tower crane",items:"3",Status:false},
+  consignments= [{type:"Case",items:"2",Status:true},
+  {type:"JCB",items:"3",Status:false},
 ]
-  constructor(public dialog : MatDialog) { }
+
+constructor(public dialog : MatDialog,private location:Location) { }
 
   ngOnInit() {
+
+  }
+goBack() {
+    this.location.back();
   }
   public openCampaignDialog(Campaign) {
     const dialogRef = this.dialog.open(AdditemtypeDialogComponent, {
@@ -57,4 +63,5 @@ export class ItemMasterComponent implements OnInit {
     else
         ele.scrollLeft -= 210;
    }
+
 }

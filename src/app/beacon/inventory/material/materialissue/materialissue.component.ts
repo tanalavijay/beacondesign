@@ -1,29 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { Location } from '@angular/common';
 import { DeleteConfirmDialogComponent } from 'src/app/shared/delete-confirm-dialog/delete-confirm-dialog.component';
-import { AdditemtypeDialogComponent } from 'src/app/shared/additemtype-dialog/additemtype-dialog.component';
+import { AddslipComponent } from './addslip/addslip.component';
 
 @Component({
-  selector: 'app-item-master',
-  templateUrl: './item-master.component.html',
-  styleUrls: ['./item-master.component.scss']
+  selector: 'app-materialissue',
+  templateUrl: './materialissue.component.html',
+  styleUrls: ['./materialissue.component.scss']
 })
-export class ItemMasterComponent implements OnInit {
+export class MaterialissueComponent implements OnInit {
 
   public showEmpty: boolean = false;
   filterToggle = false;
-  public popoverStatusTitle: string = 'Confirm Status Change';
-  public popoverStatusMessage: string = 'Are you sure you want to change status?';
-  public cancelClicked: boolean = false;
-  consignments= [{type:"Forklift",items:"2",Status:true},
-  {type:"Tower crane",items:"3",Status:false},
-]
-  constructor(public dialog : MatDialog) { }
+  consignments= [{issue:"OM001",date:"05-06-2020",by:"Harish",to:"Lavanya",itemmake:"Tata",itemmodel:"xc60",items:"2",status:"pending"},
+  {issue:"OM002",date:"06-06-2020",by:"Naven",to:"Surya",itemmake:"jcb",itemmodel:"xj74",items:"3",status:"In Progress"},]
+  
+
+  constructor(public dialog: MatDialog,private location:Location) { }
 
   ngOnInit() {
+
   }
+
+ goBack() {
+    this.location.back();
+  }
+  
   public openCampaignDialog(Campaign) {
-    const dialogRef = this.dialog.open(AdditemtypeDialogComponent, {
+    const dialogRef = this.dialog.open(AddslipComponent, {
       data: Campaign,
       height: 'auto',
       width: '600px',
