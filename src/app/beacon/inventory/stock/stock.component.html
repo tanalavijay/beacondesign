@@ -1,5 +1,92 @@
-<div class="row d-flex">
-  <div class="col-6 mx-auto middle">
-    <img style="margin-top: 15%; display: flex; margin-left: auto; margin-right: auto;" src="/assets/img/under-construction.png" height="400px" alt="under-construction">
+<div fxLayout="row wrap">
+  <div class="w-100">
+    <div class="flex-p">
+      <div class="row wrap">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <div class="pills w-100 flex-p">
+          </div>
+        </div>
+        <div class="col-xs-6" style="margin-right:0px !important">
+          <div class="w-100 flex-p">
+              <button mat-raised-button class="pull-right  btn-primary  margin-right-10" (click)="openCampaignDialog(null)">
+                  <mat-icon>add</mat-icon>
+                  Add Stock
+                </button>
+            <button *ngIf="!showEmpty" mat-raised-button class="pull-right  btn-primary  margin-right-10">
+              <mat-icon>import_export</mat-icon>
+              Export
+            </button>
+            <button mat-raised-button color="primary" class="pull-right  margin-right-10"
+              (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list</mat-icon> Filter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" style="margin-top:10px;">
+      <div class="table-responsive w-100 flex-p" id="grid-table-container">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>Stock Transfer No</th>
+              <th>Request Date</th>
+              <th>Request Title</th>
+              <th>Project</th>
+              <th>Requested items</th>
+              <th>Approved Items</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="showEmpty">
+              <td colspan="21" class="text-center">No records found</td>
+            </tr>
+
+            <tr *ngFor="let campaign of consignments">
+              <td>
+                {{campaign.No}}
+              </td>
+              <td>
+                {{campaign.POdate}}
+              </td>
+              <td>
+                  {{campaign.branch}}
+                </td>
+                <td>
+                  {{campaign.vendorname}}
+                </td>
+              <td>
+                {{campaign.items}}
+              </td>
+             
+              <td>
+                {{campaign.items}}</td>
+
+              <td>
+                {{campaign.Status}}
+              </td>
+              <td class="text-center">
+                  <a title="Edit Stock" style="cursor: pointer;"
+                    (click)="openCampaignDialog(campaign)">
+                    <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                  </a>
+                  <a title="Delete Stock" (click)="openDeleteDialog(campaign)">
+                    <i style="cursor: pointer;" title="Delete Campaign" class="fa fa-trash red"></i>
+                  </a>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="mine" mat-fab (click)="scrollGrid('right');">
+          <mat-icon style="color:#37474f">fast_forward</mat-icon>
+        </button>
+        <button class="mine" mat-fab style="margin-right: 78px !important;" (click)="scrollGrid('left');">
+          <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
