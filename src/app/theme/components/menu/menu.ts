@@ -11,10 +11,10 @@ export const horizontalMenuItems = [
 export const adminMenuItems = [
 
     new Menu(1, 'Analytics', '/beacon/analytics', null, 'analytics', null, true, 0, "white"),
-    new Menu(2, 'Manage', '/beacon/manage', null, 'domain', null, true, 0, "white"),
-    new Menu(2.1, 'Clients', '/beacon/manage/clients', null, 'domain', null, true, 2, "white"),
-    new Menu(2.1, 'Contacts', '/beacon/manage/contacts', null, 'domain', null, true, 2, "white"),
-    new Menu(2.1, 'Projects', '/beacon/manage/projects', null, 'domain', null, true, 2, "white"),
+    new Menu(2, 'Manage', '/beacon/manage', null, 'work', null, true, 0, "white"),
+    new Menu(2.1, 'Clients', '/beacon/manage/clients', null, 'person_add', null, true, 2, "white"),
+    new Menu(2.1, 'Contacts', '/beacon/manage/contacts', null, 'contact_phone', null, true, 2, "white"),
+    new Menu(2.1, 'Projects', '/beacon/manage/projects', null, 'description', null, true, 2, "white"),
     
     new Menu(3, 'Audit', '/beacon/audit', null, 'assignment', null, true, 0, "white"),
     new Menu(3.1, 'Audits', '/beacon/audit', null, 'assignment', null, true, 3, "white"),
@@ -60,7 +60,7 @@ export const adminMenuItems = [
     
     
     new Menu(10, 'Admin', '/beacon/admin/master-data', null, 'admin_panel_settings', null, true, 0, "white"),
-    new Menu(10.1, 'Clients', '/beacon/admin/clients', null, 'person_add', null, true, 10, "white"),
+    // new Menu(10.1, 'Clients', '/beacon/admin/clients', null, 'person_add', null, true, 10, "white"),
     new Menu(10.2, 'Roles', '/beacon/admin/roles', null, 'groups', null, true, 10, "white"),
     new Menu(10.3, 'Users', '/beacon/admin/users', null, 'group', null, true, 10, "white"),
     new Menu(10.4, 'Master Data', '/beacon/admin/master-data', null, 'layers', null, true, 10, "white"),

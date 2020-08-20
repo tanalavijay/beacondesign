@@ -20,12 +20,12 @@ import { RolesDialogComponent } from './roles/roles-dialog/roles-dialog.componen
 import { UserdialogComponent } from './users/userdialog/userdialog.component';
 
 export const routes = [
-  { path: "", component: ClientsComponent, pathMatch: "full" },
-  {
-    path: "clients",
-    component: ClientsComponent,
-    data: { breadcrumb: "Clients" },
-  },
+  { path: "", component: RolesComponent, pathMatch: "full" },
+  // {
+  //   path: "clients",
+  //   component: ClientsComponent,
+  //   data: { breadcrumb: "Clients" },
+  // },
   { path: "roles", component: RolesComponent, data: { breadcrumb: "Roles" } },
   { path: "users", component: UsersComponent, data: { breadcrumb: "Users" } },
   {

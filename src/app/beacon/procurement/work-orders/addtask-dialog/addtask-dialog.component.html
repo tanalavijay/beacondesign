@@ -34,9 +34,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngIf="showEmpty">
-                                <td colspan="3" class="text-center">No records found</td>
-                            </tr>
                             <tr *ngFor="let spec of specs ; let i = index;">
                                 <ng-container *ngIf="i < 9">
                                     <td style="text-align: center !important">
