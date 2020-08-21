@@ -16,11 +16,11 @@ export class ChecklistComponent implements OnInit {
   public popoverStatusMessage: string = 'Are you sure you want to change status?';
   public cancelClicked: boolean = false;
 
-  audit = [{checklistname:"General Safety Checklist",constructionsubcategory:"Structure",frequency:"Bi Annually",status:false,questions:"10 View"},
-  {checklistname:"Electrical Fire Safety Checklist",constructionsubcategory:"Electrical",frequency:"Annually",status:true,questions:"8 View"},
-  {checklistname:"Maintenance Checklist",constructionsubcategory:"Plumbing",frequency:"Bi Annually",status:false,questions:"2 View"},
-  {checklistname:"Safety Checklist",constructionsubcategory:"Architecture",frequency:"Monthly",status:true,questions:"6 View"},
-  {checklistname:"Equipment Maintenance Checklist",constructionsubcategory:"Structure",frequency:"Annually",status:false,questions:"8 View"}]
+  audit = [{checklistname:"General Safety Checklist",constructionsubcategory:"Structure",frequency:"Bi Annually",status:false,questions:"View(10)"},
+  {checklistname:"Electrical Fire Safety Checklist",constructionsubcategory:"Electrical",frequency:"Annually",status:true,questions:"View(8)"},
+  {checklistname:"Maintenance Checklist",constructionsubcategory:"Plumbing",frequency:"Bi Annually",status:false,questions:"View(2)"},
+  {checklistname:"Safety Checklist",constructionsubcategory:"Architecture",frequency:"Monthly",status:true,questions:"View(6)"},
+  {checklistname:"Equipment Maintenance Checklist",constructionsubcategory:"Structure",frequency:"Annually",status:false,questions:"View(4)"}]
 
   constructor(public dialog : MatDialog) { }
 

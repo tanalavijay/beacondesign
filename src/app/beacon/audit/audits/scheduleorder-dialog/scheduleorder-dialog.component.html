@@ -17,7 +17,7 @@
         <div class="form-group">
             <label class="control-label col-sm-4 add-member-label">Construction Sub Category:&nbsp;</label>
             <div class="col-sm-8">
-              <mat-select class='form-control'   placeholder="-- Construction --">
+              <mat-select class='form-control'   placeholder="-- Category --">
                 <mat-option *ngFor="let option of construction" [value]="option.branch_id">{{option.branch_name}}</mat-option>
               </mat-select>
             </div>

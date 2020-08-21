@@ -9,7 +9,8 @@ import { ScheduleorderDialogComponent } from './scheduleorder-dialog/scheduleord
   styleUrls: ['./audits.component.scss']
 })
 export class AuditsComponent implements OnInit {
-
+  public showEmpty: boolean = false;
+  filterToggle = false;
   audit = [{auditid:"OM001",project:"P12002",constructionsubcategory:"Structure",checklist:"Fire Safety Checklist",auditor:"Navin",startdate:"01-08-2020",enddate:"08-08-2020",submissiondate:"12-08-2020",Status:"In Progress"},
   {auditid:"OM002",project:"P12007",constructionsubcategory:"Architecture",checklist:"Routine Inspection Checklist",auditor:"Siva",startdate:"02-08-2020",enddate:"09-08-2020",submissiondate:"13-08-2020",Status:"Delayed"},
   {auditid:"OM003",project:"P12301",constructionsubcategory:"Plumbing",checklist:"Site Safety Inspection Checklist",auditor:"Vijay",startdate:"03-08-2020",enddate:"10-08-2020",submissiondate:"14-08-2020",Status:"Completed"},
