@@ -65,7 +65,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TooltipModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyD1rdFVTvmZLUDZI4F5FCGY-XC0_VvQZXg",
+      apiKey: "",
     }),
     PerfectScrollbarModule,
     ToasterModule.forRoot(),
